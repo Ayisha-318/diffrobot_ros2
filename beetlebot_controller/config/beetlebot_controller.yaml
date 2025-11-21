@@ -6,8 +6,8 @@ controller_manager:
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    joint_velocity_controller:
-      type: velocity_controllers/JointGroupVelocityController
+    # joint_velocity_controller:
+    #   type: velocity_controllers/JointGroupVelocityController
       
     beetlebot_diff_drive_controller:
       type: diff_drive_controller/DiffDriveController
@@ -15,7 +15,6 @@ controller_manager:
 
 beetlebot_diff_drive_controller:
  ros__parameters:
-    type        : diff_drive_controller/DiffDriveController
     use_stamped_vel: false
     left_wheel_names  : ['base_link_to_wheel_left']
     right_wheel_names : ['base_link_to_wheel_right']
@@ -45,6 +44,8 @@ beetlebot_diff_drive_controller:
     # Publish to TF directly or not
     enable_odom_tf: false
 
+    publish_odom: true
+
     # Velocity and acceleration limits
     # Whenever a min_* is unspecified, default to -max_*
     linear:
@@ -69,8 +70,8 @@ beetlebot_diff_drive_controller:
         max_jerk               : 2.5  # rad/s^3
 
 
-joint_velocity_controller:
-  ros__parameters:
-    joints:
-      - base_link_to_wheel_left
-      - base_link_to_wheel_right
+# joint_velocity_controller:
+#   ros__parameters:
+#     joints:
+#       - base_link_to_wheel_left
+#       - base_link_to_wheel_right
